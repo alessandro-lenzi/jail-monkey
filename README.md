@@ -1,4 +1,4 @@
-# WARNING:  Currently unsupported.  Happy to merge PRs, but I don't have the devices to test anymore
+# WARNING:  I don't have the devices to test anymore, so testing is done by those submitting PRs bona fide.
 
 ![Jail Monkey](./_art/JailMonkey.jpg)
 ## Can you ever really trust a phone?
@@ -24,6 +24,12 @@ JailMonkey.trustFall()
 
 // (ANDROID ONLY) Check if application is running on external storage
 JailMonkey.isOnExternalStorage()
+
+// (ANDROID ONLY) Check if the phone has some malicious apps installed
+JailMonkey.hookDetected()
+
+// Check if the application is running in debug mode
+JailMonkey.isDebugged()
 ```
 ![Circle of Trust](./_art/trust.jpg)
 
@@ -37,6 +43,8 @@ react-native link
 ```
 
 If you use `rnpm`, you may have trouble as `rnpm` does not link Android properly after 0.29.0!
+
+Note: On Android you should include `location.isFromMockProvider()` from your location provider to compliment `JailMonkey.canMockLocation()`.  Most react-native location libraries already have this check built in
 
 # Additional Info
 This has been made public to help keep it up to date.  As detection measures get better or out-dated, please send updates to this project so it can be the best method of detection.
